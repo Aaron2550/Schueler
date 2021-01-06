@@ -18,10 +18,9 @@ class Schueler {
     }
 
     void notenheftAusgeben() {
-        System.out.println("\n");
-        System.out.println("Name:" + s_name);
-        System.out.println("Vorname:" + s_vorname);
-        System.out.println("Note:" + s_note);
+        System.out.println();
+        System.out.println("Name: " + s_name + ", " + s_vorname);
+        System.out.println("Note: " + s_note + " (" + Note.values()[s_note - 1].name() + ")");
     }
 
     void noteVerbessern (int um) {

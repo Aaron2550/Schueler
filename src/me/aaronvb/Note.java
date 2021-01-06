@@ -6,6 +6,6 @@ enum Note {
     BEFRIEDIGEND,
     AUSREICHEND,
     MANGELHAFT,
-    UNGENUEGEND;
+    UNGENUEGEND
 }
 
