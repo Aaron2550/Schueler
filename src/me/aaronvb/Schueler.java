@@ -49,6 +49,44 @@ class Schueler {
         }
     }
 
+    void notenHinzufuegen(Fach fach, Note[] notenArray) {
+        for (Note note : notenArray ) {
+            if (s_notenheft.get(fach) == null) {
+                ArrayList<Integer> noten = new ArrayList<>();
+
+                //Note in neue ArrayList hinzufügen und die ArrayList zur Map hinzufügen
+                noten.add(note.ordinal() + 1);
+                s_notenheft.put(fach, noten);
+            } else {
+                ArrayList<Integer> noten = s_notenheft.get(fach);
+
+                //Note in neue ArrayList hinzufügen und die ArrayList in der Map ersetzen
+                noten.add(note.ordinal() + 1);
+                s_notenheft.replace(fach, s_notenheft.get(fach), noten);
+            }
+        }
+    }
+
+    void notenHinzufuegen(Fach fach, int[] notenArray) {
+        for (int note : notenArray ) {
+            if (note <= 6 && note >= 1) {
+                if (s_notenheft.get(fach) == null) {
+                    ArrayList<Integer> noten = new ArrayList<>();
+
+                    //Note in neue ArrayList hinzufügen und die ArrayList zur Map hinzufügen
+                    noten.add(note);
+                    s_notenheft.put(fach, noten);
+                } else {
+                    ArrayList<Integer> noten = s_notenheft.get(fach);
+
+                    //Note in neue ArrayList hinzufügen und die ArrayList in der Map ersetzen
+                    noten.add(note);
+                    s_notenheft.replace(fach, s_notenheft.get(fach), noten);
+                }
+            }
+        }
+    }
+
     boolean letzteNoteEntfernen(Fach fach) {
         if (s_notenheft.get(fach) != null) {
             ArrayList<Integer> noten = s_notenheft.get(fach);
