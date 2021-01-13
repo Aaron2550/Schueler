@@ -4,10 +4,6 @@ public class Schuelerbeispiel {
 
     public static void main(String[] args) {
 
-        //Fill in my data parameters, INITIALIZATION
-        //Set up our new world and lets begin the SIMULATION
-        //Shoutout wenn sie das Lied kennen :P
-
         Schueler[] schuelerliste = {
                 new Schueler("Aaron", "Müller"),
                 new Schueler("Abraham", "Schmidt"),
