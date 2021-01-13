@@ -117,6 +117,35 @@ class Schueler {
         }
     }
 
+    boolean istDurchschnittBesserAls(Schueler schueler, Fach fach) {
+        float durchschnittSchuelerEins = durchschnittGenauBerechnen(fach);
+        float durchschnittSchuelerZwei = schueler.durchschnittGenauBerechnen(fach);
+
+        return durchschnittSchuelerEins < durchschnittSchuelerZwei;
+    }
+
+    boolean istGesamtdurchschnittBesserAls(Schueler schueler) {
+        float durchschnittSchuelerEins = 0, durchschnittSchuelerZwei = 0;
+        int anzahlFaecher = 0;
+
+        for (Fach fach : Fach.values()) {
+            durchschnittSchuelerEins += durchschnittGenauBerechnen(fach);
+            anzahlFaecher++;
+        }
+
+        durchschnittSchuelerEins = durchschnittSchuelerEins / anzahlFaecher;
+        anzahlFaecher = 0;
+
+        for (Fach fach : Fach.values()) {
+            durchschnittSchuelerZwei += schueler.durchschnittGenauBerechnen(fach);
+            anzahlFaecher++;
+        }
+
+        durchschnittSchuelerZwei = durchschnittSchuelerZwei / anzahlFaecher;
+
+        return durchschnittSchuelerEins > durchschnittSchuelerZwei;
+    }
+
     boolean notenheftAusgeben(Fach fach) {
         if (s_notenheft.get(fach) != null) {
             StringBuilder notenliste = new StringBuilder();
@@ -136,6 +165,7 @@ class Schueler {
     }
 
     void notenheftAusgeben() {
+        int summeAllerNoten = 0;
         System.out.println("Name: " + s_name + ", " + s_vorname);
 
         for (Map.Entry<Fach, ArrayList<Integer>> eintrag : s_notenheft.entrySet()) {
@@ -144,14 +174,44 @@ class Schueler {
             for (int note : s_notenheft.get(eintrag.getKey())) {
                 //Am Ende hängt dann ein extra Leerzeichen dran, aber das fällt ja niemandem auf :))))))))))))))
                 notenliste.append(note).append(" ");
+                summeAllerNoten += note;
             }
-            System.out.println("    Noten (" + eintrag.getKey().name() + "): " + notenliste + "   Ø: " + durchschnittGenauBerechnen(eintrag.getKey()));
+            System.out.println("    " + eintrag.getKey().name() + ": " + notenliste + "   Ø: " + durchschnittGenauBerechnen(eintrag.getKey()));
         }
+
+        if (anzahlNoten() == 0) {
+            System.out.println("    Insgesamt Ø: Schüler hat keine Noten!");
+        } else {
+            System.out.println("    Insgesamt Ø: " + ((float) summeAllerNoten / anzahlNoten()));
+        }
+    }
+
+    int anzahlNoten() {
+        int anzahlNoten = 0;
+
+        for (Fach fach : Fach.values()) {
+            try {
+                anzahlNoten += s_notenheft.get(fach).size();
+            } catch(NullPointerException ignored) {
+                //Schüler hat keine Noten in diesem Fach, Fehler kann ignoriert werden.
+                anzahlNoten += 0;
+            }
+        }
+
+        return anzahlNoten;
+    }
+
+    Map<Fach, ArrayList<Integer>> notenheftErhalten() {
+        return s_notenheft;
     }
     
     int durchschnittBerechnen(Fach fach) {
         int summe = 0;
-        
+
+        if (s_notenheft.get(fach) == null) {
+            return summe;
+        }
+
         for (int note : s_notenheft.get(fach)) {
             summe += note;
         }
@@ -161,6 +221,10 @@ class Schueler {
 
     float durchschnittGenauBerechnen(Fach fach) {
         float summe = 0f;
+
+        if (s_notenheft.get(fach) == null) {
+            return summe;
+        }
 
         for (int note : s_notenheft.get(fach)) {
             summe += note;

@@ -19,7 +19,7 @@ public class Schuelerbeispiel {
                 new Schueler("Elias", "Schäfer"),
                 new Schueler("Elisabeth", "Koch"),
                 new Schueler("Eva", "Bauer"),
-                new Schueler("Hanna", "Richter"),
+                new Schueler("Hanna", "Richter")
         };
 
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 3);
@@ -32,6 +32,14 @@ public class Schuelerbeispiel {
 
         schuelerliste[0].noteHinzufuegen(Fach.Deutsch, Note.Ausreichend);
         schuelerliste[0].noteEntfernen(Fach.Chemie, 0);
+
+        if (schuelerliste[0].istGesamtdurchschnittBesserAls(schuelerliste[1])) {
+            System.out.println(schuelerliste[0].s_name + ", " + schuelerliste[0].s_vorname + " ist insgesamt besser als " + schuelerliste[1].s_name + ", " + schuelerliste[1].s_vorname);
+        }
+
+        if (schuelerliste[1].istDurchschnittBesserAls(schuelerliste[0], Fach.Deutsch)) {
+            System.out.println(schuelerliste[1].s_name + ", " + schuelerliste[1].s_vorname + " ist besser in Deutsch als " + schuelerliste[0].s_name + ", " + schuelerliste[0].s_vorname);
+        }
 
         schuelerlisteAusgeben(schuelerliste);
     }
