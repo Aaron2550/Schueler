@@ -28,7 +28,7 @@ public class Schuelerbeispiel {
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 1);
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 1);
 
-        schuelerliste[1].notenHinzufuegen(Fach.Deutsch, new int[]{1, 4, 3, 2, 6, 3, 7, 2, 4, 6, 2, 4 ,6 ,4 , 3, 4, 5, 4, 3}); //Noten > 6 werden ignoriert
+        schuelerliste[1].notenHinzufuegen(Fach.Deutsch, new int[] {1, 4, 3, 2, 6, 3, 7, 2, 4, 6, 2, 4 ,6 ,4 , 3, 4, 5, 4, 3}); //Noten > 6 werden ignoriert
 
         schuelerliste[0].noteHinzufuegen(Fach.Deutsch, Note.Ausreichend);
         schuelerliste[0].noteEntfernen(Fach.Chemie, 0);
