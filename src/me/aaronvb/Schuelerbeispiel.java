@@ -11,15 +11,7 @@ public class Schuelerbeispiel {
                 new Schueler("Andreas", "Fischer"),
                 new Schueler("Anna", "Weber"),
                 new Schueler("Balthasar", "Meyer"),
-                new Schueler("Christian", "Wagner"),
-
-                new Schueler("Daniel", "Schulz"),
-                new Schueler("David", "Becker"),
-                new Schueler("Delila", "Hoffmann"),
-                new Schueler("Elias", "Schäfer"),
-                new Schueler("Elisabeth", "Koch"),
-                new Schueler("Eva", "Bauer"),
-                new Schueler("Hanna", "Richter")
+                new Schueler("Christian", "Wagner")
         };
 
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 3);
@@ -28,7 +20,17 @@ public class Schuelerbeispiel {
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 1);
         schuelerliste[0].noteHinzufuegen(Fach.Chemie, 1);
 
-        schuelerliste[1].notenHinzufuegen(Fach.Deutsch, new int[] {1, 4, 3, 2, 6, 3, 7, 2, 4, 6, 2, 4 ,6 ,4 , 3, 4, 5, 4, 3}); //Noten > 6 werden ignoriert
+        schuelerliste[1].notenHinzufuegen(Fach.Deutsch, new int[] {1, 4, 3, 2, 6, 3, 7, 2, 4, 6, 2, 4 ,6 , 4, 3, 4, 5, 4, 3}); //Noten > 6 werden ignoriert
+        schuelerliste[1].notenHinzufuegen(Fach.Chemie, new int[] {4, 3, 3, 3, 3, 4, 4, 1, 1, 2, 2, 5 ,4 , 5, 1, 1, 5, 1, 3});
+
+        schuelerliste[2].notenHinzufuegen(Fach.Physik, new int[] {1, 4, 1, 2, 1, 2, 2, 2, 4, 6, 2, 4, 1, 1, 3, 4, 2, 1, 3});
+        schuelerliste[3].notenHinzufuegen(Fach.Mathe, new int[] {1, 1, 3, 2, 1, 3, 2, 1, 4, 2, 2, 2 ,2 , 4, 3, 4, 2, 2, 4});
+
+        schuelerliste[4].notenHinzufuegen(Fach.Informatik, new int[] {1, 1, 1, 2, 1, 1, 2, 2, 1, 1, 2, 2, 2 ,1, 2, 2, 2, 2, 3});
+        schuelerliste[5].notenHinzufuegen(Fach.Deutsch, new int[] {1, 4, 3, 2, 6, 3, 2, 2, 4, 6, 2, 4, 6, 4, 3, 4, 5, 4, 3});
+
+        schuelerliste[6].notenHinzufuegen(Fach.Ethik, new int[] {2, 2, 3, 2, 6, 2, 2, 2, 4, 6, 2, 4 ,6 , 4, 3, 4, 5, 4, 3});
+        schuelerliste[6].notenHinzufuegen(Fach.Gemeindschaftskunde, new int[] {1, 4, 3, 2, 6, 1, 1, 2, 4, 6, 4, 4 ,4 , 4, 3, 4, 4, 4, 4});
 
         schuelerliste[0].noteHinzufuegen(Fach.Deutsch, Note.Ausreichend);
         schuelerliste[0].noteEntfernen(Fach.Chemie, 0);
