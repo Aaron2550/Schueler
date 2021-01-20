@@ -88,6 +88,7 @@ class Schueler {
     }
 
     boolean letzteNoteEntfernen(Fach fach) {
+        //Rüclgabe: true wenn erfolgreich
         if (s_notenheft.get(fach) != null) {
             ArrayList<Integer> noten = s_notenheft.get(fach);
 
@@ -102,6 +103,7 @@ class Schueler {
     }
 
     boolean noteEntfernen(Fach fach, int index) {
+        //Rückgabe: true wenn erfolgreich
         if (s_notenheft.get(fach) != null) {
             ArrayList<Integer> noten = s_notenheft.get(fach);
 
@@ -118,6 +120,7 @@ class Schueler {
     }
 
     boolean istDurchschnittBesserAls(Schueler schueler, Fach fach) {
+        //Rückgabe: true wenn besser
         float durchschnittSchuelerEins = durchschnittGenauBerechnen(fach);
         float durchschnittSchuelerZwei = schueler.durchschnittGenauBerechnen(fach);
 
@@ -125,6 +128,7 @@ class Schueler {
     }
 
     boolean istGesamtdurchschnittBesserAls(Schueler schueler) {
+        //Rückgabe: true wenn besser
         float durchschnittSchuelerEins = 0, durchschnittSchuelerZwei = 0;
         int anzahlFaecher = 0;
 
@@ -147,6 +151,7 @@ class Schueler {
     }
 
     boolean notenheftAusgeben(Fach fach) {
+        //Rückgabe: true wenn erfolgreich
         if (s_notenheft.get(fach) != null) {
             StringBuilder notenliste = new StringBuilder();
 
@@ -187,6 +192,7 @@ class Schueler {
     }
 
     int anzahlNoten() {
+        //Rückgabe: Anzahl der Noten
         int anzahlNoten = 0;
 
         for (Fach fach : Fach.values()) {
@@ -206,6 +212,7 @@ class Schueler {
     }
     
     int durchschnittBerechnen(Fach fach) {
+        //Rückgabe: Ungenauer Durchschnitt
         int summe = 0;
 
         if (s_notenheft.get(fach) == null) {
@@ -220,6 +227,7 @@ class Schueler {
     }
 
     float durchschnittGenauBerechnen(Fach fach) {
+        //Rückgabe: Genauer Durchschnitt
         float summe = 0f;
 
         if (s_notenheft.get(fach) == null) {

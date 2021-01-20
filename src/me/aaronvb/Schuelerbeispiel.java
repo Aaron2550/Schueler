@@ -34,10 +34,12 @@ public class Schuelerbeispiel {
         schuelerliste[0].noteEntfernen(Fach.Chemie, 0);
 
         if (schuelerliste[0].istGesamtdurchschnittBesserAls(schuelerliste[1])) {
+            //Ersten Schüler in der Liste mit dem zweiten Schüler in der Liste vergleichen
             System.out.println(schuelerliste[0].s_name + ", " + schuelerliste[0].s_vorname + " ist insgesamt besser als " + schuelerliste[1].s_name + ", " + schuelerliste[1].s_vorname);
         }
 
         if (schuelerliste[1].istDurchschnittBesserAls(schuelerliste[0], Fach.Deutsch)) {
+            //Deutschnoten des zweiten Schülers in der Liste mit den Deustchnoten des ersten Schülers in der Liste vergleichen
             System.out.println(schuelerliste[1].s_name + ", " + schuelerliste[1].s_vorname + " ist besser in Deutsch als " + schuelerliste[0].s_name + ", " + schuelerliste[0].s_vorname);
         }
 
